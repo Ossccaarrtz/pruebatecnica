@@ -128,12 +128,6 @@ main {
   height: 240px;
 }
 
-@media (max-width: 600px) {
-  .chart-wrapper {
-    height: 280px;
-  }
-}
-
 .empty-state {
   min-height: 180px;
   display: grid;
@@ -180,10 +174,48 @@ th:last-child {
 
 @media (max-width: 600px) {
   .page-header {
-    padding-top: 32px;
+    padding: 32px 0 16px;
+  }
+
+  main {
+    gap: 16px;
   }
 
   .panel {
     padding: 18px;
+  }
+
+  /* KPIs y cartas de planta: 2 por fila, más compactas */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .kpi {
+    padding: 12px;
+  }
+
+  .kpi-value {
+    font-size: 1.25rem;
+  }
+
+  /* Gráficas: un poco más altas para que se lean en pantalla angosta */
+  .chart-wrapper {
+    height: 300px;
+  }
+
+  .chart-wrapper--bar {
+    height: 260px;
+  }
+
+  .chart-title {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Pantallas muy estrechas: KPIs en una sola columna */
+  .kpi-grid {
+    grid-template-columns: 1fr;
   }
 }

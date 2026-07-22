@@ -54,6 +54,9 @@ main {
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 8px 24px rgb(16 24 40 / 5%);
+  /* Permite que el panel se encoja dentro del grid para que el scroll
+     horizontal de la tabla funcione en vez de desbordar la página. */
+  min-width: 0;
 }
 
 .panel h2 {

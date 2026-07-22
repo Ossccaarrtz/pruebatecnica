@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Análisis de mantenimiento</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="data/movements.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <p class="eyebrow">Prueba técnica · Datos ficticios</p>
+      <h1>Movimientos de mantenimiento</h1>
+      <p>Convierte los registros contables en información útil para decidir.</p>
+    </header>
+
+    <main>
+      <section id="summary" class="panel" aria-labelledby="summary-title">
+        <h2 id="summary-title">Resumen del periodo</h2>
+        <p id="record-count">Cargando datos…</p>
+        <div id="kpis" class="kpi-grid"></div>
+      </section>
+
+      <section
+        id="visualization"
+        class="panel"
+        aria-labelledby="visualization-title"
+      >
+        <h2 id="visualization-title">Evolución del gasto mensual por planta</h2>
+        <p class="panel-subtitle">
+          Importe neto por mes y por planta (enero–junio 2026).
+        </p>
+        <div class="chart-wrapper">
+          <canvas
+            id="spend-trend"
+            role="img"
+            aria-label="Gráfica de línea del gasto mensual de mantenimiento por planta"
+          ></canvas>
+        </div>
+
+        <div id="plant-totals" class="kpi-grid"></div>
+
+        <h3 class="chart-title">Gasto por categoría contable</h3>
+        <br />
+        <p class="panel-subtitle">Importe neto acumulado, de mayor a menor.</p>
+        <div class="chart-wrapper chart-wrapper--bar">
+          <canvas
+            id="spend-by-category"
+            role="img"
+            aria-label="Gráfica de barras del gasto por categoría contable"
+          ></canvas>
+        </div>
+      </section>
+
+      <section id="finding" class="panel" aria-labelledby="finding-title">
+        <h2 id="finding-title">Hallazgo que merece atención</h2>
+        <div id="finding-text" class="finding-callout"></div>
+        <div class="chart-wrapper chart-wrapper--bar">
+          <canvas
+            id="price-trend"
+            role="img"
+            aria-label="Gráfica de línea de la evolución del precio unitario del artículo con mayor incremento"
+          ></canvas>
+        </div>
+      </section>
+
+      <section id="details" class="panel" aria-labelledby="details-title">
+        <h2 id="details-title">Datos en crudo</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Planta</th>
+                <th>Categoría</th>
+                <th>Artículo</th>
+                <th>Equipo</th>
+                <th>Importe</th>
+              </tr>
+            </thead>
+            <tbody id="raw-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
